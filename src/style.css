@@ -3,3 +3,19 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.header {
+  display: flex;
+  list-style-type: none;
+  gap: 50px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+  border-top: 2px solid black;
+}
