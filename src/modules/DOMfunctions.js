@@ -1,5 +1,32 @@
-// eslint-disable-next-line import/prefer-default-export
-export const createPopup = (epiDetails) => {
+export const showErrorMsg = (msg) => {
+  const errorDiv = document.createElement('h5');
+  errorDiv.textContent = msg;
+  document.body.appendChild(errorDiv);
+};
+
+const createCommendChild = (comment) => {
+  const commentLine = document.createElement('div');
+  commentLine.classList.add('comment-line');
+  const commentDate = document.createElement('p');
+  commentDate.classList.add('comment-date');
+  commentDate.textContent = comment.creation_date;
+
+  const commentUser = document.createElement('p');
+  commentUser.classList.add('comment-user');
+  commentUser.textContent = comment.username;
+
+  const commentText = document.createElement('p');
+  commentText.classList.add('comment-text');
+  commentText.textContent = comment.comment;
+
+  commentLine.appendChild(commentDate);
+  commentLine.appendChild(commentUser);
+  commentLine.appendChild(commentText);
+
+  return commentLine;
+};
+
+export const createPopup = (epiDetails, comments) => {
   const popupWrapper = document.createElement('div');
   popupWrapper.classList.add('popup-wrapper');
   const popup = document.createElement('div');
@@ -54,6 +81,9 @@ export const createPopup = (epiDetails) => {
 
   const commentsContainer = document.createElement('div');
   commentsContainer.classList.add('comments-container');
+  comments.forEach((comment) => {
+    commentsContainer.appendChild(createCommendChild(comment));
+  });
 
   const formHeader = document.createElement('h3');
   formHeader.classList.add('form-header');
