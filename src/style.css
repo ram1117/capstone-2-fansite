@@ -10,6 +10,71 @@ body {
   gap: 50px;
 }
 
+.popup-wrapper {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background-color: black;
+}
+
+.popup {
+  width: 70%;
+  margin: 5% auto;
+  padding: 5%;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#close-button {
+  font-size: 3em;
+  position: absolute;
+  right: 5%;
+}
+
+.episode-img {
+  height: 70%;
+  width: 70%;
+  object-fit: contain;
+}
+
+.episode-details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.episode-details-wrapper > * {
+  width: 50%;
+}
+
+.comments-container {
+  height: 5vh;
+  width: 60%;
+  border: solid 1px black;
+}
+
+#comments-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: none;
+}
+
+.form-input {
+  margin: 5%;
+  padding: 3%;
+}
+
 .footer {
   position: fixed;
   left: 0;
