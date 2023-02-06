@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
 }
 
-.header{
+.header {
   display: flex;
   list-style-type: none;
   gap: 50px;
