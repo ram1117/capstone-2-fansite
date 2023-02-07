@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+import { postComments } from './APIfunctions.js';
+
 export const showErrorMsg = (msg) => {
   const errorDiv = document.createElement('h5');
   errorDiv.textContent = msg;
@@ -38,6 +41,12 @@ export const updatePopupComments = (comments) => {
 
 const dismissPopup = (popupElement) => {
   document.body.removeChild(popupElement);
+};
+
+const getInputFromForm = (epiId) => {
+  const nameVal = document.querySelector('#input-name').value;
+  const CmmtVal = document.querySelector('#input-comment').value;
+  postComments({ item_id: epiId, username: nameVal, comment: CmmtVal });
 };
 
 export const createPopup = (epiDetails) => {
@@ -105,11 +114,17 @@ export const createPopup = (epiDetails) => {
   commentForm.action = 'post';
 
   commentForm.innerHTML = `<label class="form-label" for="name">Name</label>
-  <input id="name" class="form-input" type="text" placeholder="Your Name..." required>
+  <input id="input-name" class="form-input" type="text" placeholder="Your Name..." required>
   <label class="form-label" for="comment">Comment</label>
-  <textarea id="comment" class="form-input" type="text" placeholder="Your Insights..." rows="5" required></textarea>
+  <textarea id="input-comment" class="form-input" type="text" placeholder="Your Insights..." rows="5" required></textarea>
   <label class="form-label" for="submitbtn">Submit</label>      
   <button id="submitbtn" class="formsubmit-btn" type="submit">Comment</button>`;
+
+  commentForm.onsubmit = (event) => {
+    event.preventDefault();
+    getInputFromForm(commentForm.parentNode.dataset.episodeId);
+    commentForm.reset();
+  };
 
   popup.appendChild(closeButton);
   popup.appendChild(mainImg);
