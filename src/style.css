@@ -37,12 +37,13 @@ body {
 #close-button {
   font-size: 3em;
   position: absolute;
-  right: 5%;
+  right: 2%;
+  top: 2%;
 }
 
 .episode-img {
-  height: 70%;
-  width: 70%;
+  /* height: 90%; */
+  width: 90%;
   object-fit: contain;
 }
 
@@ -56,9 +57,25 @@ body {
 }
 
 .comments-container {
-  height: 5vh;
-  width: 60%;
-  border: solid 1px black;
+  width: 70%;
+  height: 15vh;
+  padding: 0 2%;
+  overflow-y: scroll;
+}
+
+.comment-line {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-line > * {
+  margin: 1% 0;
+}
+
+.comment-date,
+.comment-user {
+  width: 25%;
 }
 
 #comments-form {

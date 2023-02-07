@@ -1,4 +1,45 @@
-// eslint-disable-next-line import/prefer-default-export
+export const showErrorMsg = (msg) => {
+  const errorDiv = document.createElement('h5');
+  errorDiv.textContent = msg;
+  document.body.appendChild(errorDiv);
+};
+
+const createCommentChild = (comment) => {
+  const commentLine = document.createElement('div');
+  commentLine.classList.add('comment-line');
+  const commentDate = document.createElement('p');
+  commentDate.classList.add('comment-date');
+  commentDate.textContent = comment.creation_date;
+
+  const commentUser = document.createElement('p');
+  commentUser.classList.add('comment-user');
+  commentUser.textContent = comment.username;
+
+  const commentText = document.createElement('p');
+  commentText.classList.add('comment-text');
+  commentText.textContent = comment.comment;
+
+  commentLine.appendChild(commentDate);
+  commentLine.appendChild(commentUser);
+  commentLine.appendChild(commentText);
+
+  return commentLine;
+};
+
+export const updatePopupComments = (comments) => {
+  const cmtContainer = document.querySelector('.comments-container');
+  while (cmtContainer.firstChild) {
+    cmtContainer.removeChild(cmtContainer.firstChild);
+  }
+  comments.forEach((comment) => {
+    cmtContainer.appendChild(createCommentChild(comment));
+  });
+};
+
+const dismissPopup = (popupElement) => {
+  document.body.removeChild(popupElement);
+};
+
 export const createPopup = (epiDetails) => {
   const popupWrapper = document.createElement('div');
   popupWrapper.classList.add('popup-wrapper');
@@ -9,8 +50,7 @@ export const createPopup = (epiDetails) => {
   closeButton.classList.add('fa', 'fa-close');
   closeButton.id = 'close-button';
   closeButton.onclick = () => {
-    const popup = document.querySelector('.popup-wrapper');
-    document.body.removeChild(popup);
+    dismissPopup(popupWrapper);
   };
 
   const mainImg = document.createElement('img');

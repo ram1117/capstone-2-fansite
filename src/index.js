@@ -5,4 +5,5 @@ import './style.css';
 const testBtn = document.querySelector('#test-button');
 testBtn.onclick = () => {
   fetchEpisode('2300603');
+  // fetchEpisode('00');
 };
