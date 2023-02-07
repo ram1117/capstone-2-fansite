@@ -4,25 +4,14 @@ export const createSeasonList = (episodeDetails) => {
   if (homePage.childNodes.length > 0) {
     homePage.innerHTML = '';
   }
-  const episodeList = document.createElement('ul');
-  episodeList.classList.add('episode-list');
-
   episodeDetails.forEach((episodeDetail) => {
-    if (episodeDetail.number === null) {
-      episodeDetail.number = 'Last';
-    }
-    episodeList.insertAdjacentHTML('beforeend',
-      `<li class="episode-listo">
-        <div class="episode-image">
-            <img src="${episodeDetail.image.medium}" width="150" 
-            height="120" alt="episode image">
-        </div>
-        <div class="episode-number">
-            <h3>Episode: ${episodeDetail.number}</h3>
-        </div>
-        <div><button>Comments</button></div>
-        div class = "comment-button"><button>Reservations</button></div>
-      </li>`);
+    const episodeTile = document.createElement('div');
+    episodeTile.classList.add('episode-tile');
+    episodeTile.dataset.episodeId = episodeDetail.id;
+    episodeTile.innerHTML = `
+    <img class="episode-image" src="${episodeDetail.image.medium}" alt="episode image">
+    <h3 class="episode-number">Episode: ${episodeDetail.number}</h3>
+    <button id="main-comment-popup" type="button">Comments</button>`;
+    homePage.appendChild(episodeTile);
   });
-  homePage.appendChild(episodeList);
 };

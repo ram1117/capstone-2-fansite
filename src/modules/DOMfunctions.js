@@ -27,7 +27,7 @@ const createCommentChild = (comment) => {
 };
 
 export const updatePopupComments = (comments) => {
-  const cmtContainer = document.querySelector('.comments-container');
+  const cmtContainer = document.querySelector('.popup-comments-container');
   while (cmtContainer.firstChild) {
     cmtContainer.removeChild(cmtContainer.firstChild);
   }
@@ -45,6 +45,7 @@ export const createPopup = (epiDetails) => {
   popupWrapper.classList.add('popup-wrapper');
   const popup = document.createElement('div');
   popup.classList.add('popup');
+  popup.dataset.episodeId = epiDetails.id;
 
   const closeButton = document.createElement('i');
   closeButton.classList.add('fa', 'fa-close');
@@ -54,7 +55,7 @@ export const createPopup = (epiDetails) => {
   };
 
   const mainImg = document.createElement('img');
-  mainImg.classList.add('episode-img');
+  mainImg.classList.add('popup-episode-img');
   mainImg.src = epiDetails.image.original;
   mainImg.alt = 'Image from the episode';
 
@@ -63,7 +64,7 @@ export const createPopup = (epiDetails) => {
   epiHeader.textContent = epiDetails.name;
 
   const epiDetailsWrapper = document.createElement('div');
-  epiDetailsWrapper.classList.add('episode-details-wrapper');
+  epiDetailsWrapper.classList.add('popup-episode-details-wrapper');
 
   const rating = document.createElement('p');
   rating.textContent = `Rating: ${epiDetails.rating.average}`;
@@ -93,14 +94,14 @@ export const createPopup = (epiDetails) => {
   commentsHeader.appendChild(commentsCounter);
 
   const commentsContainer = document.createElement('div');
-  commentsContainer.classList.add('comments-container');
+  commentsContainer.classList.add('popup-comments-container');
 
   const formHeader = document.createElement('h3');
-  formHeader.classList.add('form-header');
+  formHeader.classList.add('popup-form-header');
   formHeader.textContent = 'Add a comment';
 
   const commentForm = document.createElement('form');
-  commentForm.id = 'comments-form';
+  commentForm.id = 'popup-comments-form';
   commentForm.action = 'post';
 
   commentForm.innerHTML = `<label class="form-label" for="name">Name</label>

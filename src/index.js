@@ -20,9 +20,10 @@ seasonbtn3.onclick = () => {
   fetchSeason('31802');
 };
 
-/* TODO update below to add event listener to episode button */
-const testBtn = document.querySelector('#test-button');
-testBtn.onclick = () => {
-  fetchEpisode('2300603');
-  // fetchEpisode('00');
+const episodesContainer = document.querySelector('.home-page');
+episodesContainer.onclick = (event) => {
+  if (event.target.id === 'main-comment-popup') {
+    const { episodeId } = event.target.parentNode.dataset;
+    fetchEpisode(episodeId);
+  }
 };

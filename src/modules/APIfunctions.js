@@ -25,7 +25,7 @@ export const fetchEpisode = async (episodeId) => {
 
 export const fetchSeason = async (seasonId) => {
   const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
-  fetch(url)
+  await fetch(url)
     .then((response) => response.json())
     .then((data) => {
       createSeasonList(data);
