@@ -1,4 +1,4 @@
-import { fetchEpisode , fetchSeason } from './modules/APIfunctions.js';
+import { fetchEpisode, fetchSeason } from './modules/APIfunctions.js';
 import './style.css';
 
 window.onload = () => {
@@ -26,4 +26,3 @@ testBtn.onclick = () => {
   fetchEpisode('2300603');
   // fetchEpisode('00');
 };
-
