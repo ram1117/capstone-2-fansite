@@ -26,12 +26,11 @@ export const fetchEpisode = async (episodeId) => {
 export const fetchSeason = async (seasonId) => {
   const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
   fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const episodes = data;
-    createSeasonList(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      createSeasonList(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };

@@ -1,15 +1,15 @@
+// eslint-disable-next-line
 export const createSeasonList = (episodeDetails) => {
-
   const homePage = document.querySelector('.home-page');
   if (homePage.childNodes.length > 0) {
-    homePage.innerHTML="";
+    homePage.innerHTML = '';
   }
   const episodeList = document.createElement('ul');
   episodeList.classList.add('episode-list');
 
   episodeDetails.forEach((episodeDetail) => {
-    if (episodeDetail.number === null){
-      episodeDetail.number = "Last";
+    if (episodeDetail.number === null) {
+      episodeDetail.number = 'Last';
     }
     episodeList.insertAdjacentHTML('beforeend',
       `<li class="episode-listo">
