@@ -1,3 +1,4 @@
+import countComments from './commentsCounter.js';
 // eslint-disable-next-line
 import { postComments } from './APIfunctions.js';
 
@@ -37,6 +38,7 @@ export const updatePopupComments = (comments) => {
   comments.forEach((comment) => {
     cmtContainer.appendChild(createCommentChild(comment));
   });
+  countComments(comments);
 };
 
 const dismissPopup = (popupElement) => {

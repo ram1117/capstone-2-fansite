@@ -14,6 +14,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   overflow-y: scroll;
+  margin: 5% auto;
 }
 
 .episode-tile {
