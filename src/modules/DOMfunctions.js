@@ -4,16 +4,6 @@ export const showErrorMsg = (msg) => {
   document.body.appendChild(errorDiv);
 };
 
-export const updatePopupComments = (comments) =>{
-  const cmtContainer = document.querySelector('.comments-container');
-  while(cmtContainer.firstChild){
-    cmtContainer.removeChild(cmtContainer.firstChild);
-  }
-  comments.forEach((comment) => {
-    cmtContainer.appendChild(createCommentChild(comment));
-  });
-}
-
 const createCommentChild = (comment) => {
   const commentLine = document.createElement('div');
   commentLine.classList.add('comment-line');
@@ -36,11 +26,21 @@ const createCommentChild = (comment) => {
   return commentLine;
 };
 
-const dismissPopup =(popupElement)=>{
-  document.body.removeChild(popupElement);
-}
+export const updatePopupComments = (comments) => {
+  const cmtContainer = document.querySelector('.comments-container');
+  while (cmtContainer.firstChild) {
+    cmtContainer.removeChild(cmtContainer.firstChild);
+  }
+  comments.forEach((comment) => {
+    cmtContainer.appendChild(createCommentChild(comment));
+  });
+};
 
-export const createPopup = (epiDetails, comments) => {
+const dismissPopup = (popupElement) => {
+  document.body.removeChild(popupElement);
+};
+
+export const createPopup = (epiDetails) => {
   const popupWrapper = document.createElement('div');
   popupWrapper.classList.add('popup-wrapper');
   const popup = document.createElement('div');

@@ -1,20 +1,9 @@
-import { createPopup,updatePopupComments } from './DOMfunctions';
+import { createPopup, updatePopupComments } from './DOMfunctions.js';
 
 const appId = '/B6a2ll1hsjifFXa5Lo8D';
 const addCommentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
 
-// eslint-disable-next-line import/prefer-default-export
-export const fetchEpisode = async (episodeId) => {
-  
-  const tvResponse = await fetch(`https://api.tvmaze.com/episodes/${episodeId}`);
-  if (tvResponse.status === 200) {
-    const epiDetails = await tvResponse.json();
-    createPopup(epiDetails);
-    fetchComments(episodeId);
-  }
-};
-
-const fetchComments = async(episodeId)=>{
+export const fetchComments = async (episodeId) => {
   let comments = [];
   const fetchCommentUrl = `${addCommentURL}?item_id=${episodeId}`;
   const commentResponse = await fetch(fetchCommentUrl);
@@ -22,4 +11,13 @@ const fetchComments = async(episodeId)=>{
     comments = [...await commentResponse.json()];
     updatePopupComments(comments);
   }
-}
+};
+
+export const fetchEpisode = async (episodeId) => {
+  const tvResponse = await fetch(`https://api.tvmaze.com/episodes/${episodeId}`);
+  if (tvResponse.status === 200) {
+    const epiDetails = await tvResponse.json();
+    createPopup(epiDetails);
+    fetchComments(episodeId);
+  }
+};
