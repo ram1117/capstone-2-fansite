@@ -4,7 +4,17 @@ export const showErrorMsg = (msg) => {
   document.body.appendChild(errorDiv);
 };
 
-const createCommendChild = (comment) => {
+export const updatePopupComments = (comments) =>{
+  const cmtContainer = document.querySelector('.comments-container');
+  while(cmtContainer.firstChild){
+    cmtContainer.removeChild(cmtContainer.firstChild);
+  }
+  comments.forEach((comment) => {
+    cmtContainer.appendChild(createCommentChild(comment));
+  });
+}
+
+const createCommentChild = (comment) => {
   const commentLine = document.createElement('div');
   commentLine.classList.add('comment-line');
   const commentDate = document.createElement('p');
@@ -26,6 +36,10 @@ const createCommendChild = (comment) => {
   return commentLine;
 };
 
+const dismissPopup =(popupElement)=>{
+  document.body.removeChild(popupElement);
+}
+
 export const createPopup = (epiDetails, comments) => {
   const popupWrapper = document.createElement('div');
   popupWrapper.classList.add('popup-wrapper');
@@ -36,8 +50,7 @@ export const createPopup = (epiDetails, comments) => {
   closeButton.classList.add('fa', 'fa-close');
   closeButton.id = 'close-button';
   closeButton.onclick = () => {
-    const popup = document.querySelector('.popup-wrapper');
-    document.body.removeChild(popup);
+    dismissPopup(popupWrapper);
   };
 
   const mainImg = document.createElement('img');
@@ -81,9 +94,6 @@ export const createPopup = (epiDetails, comments) => {
 
   const commentsContainer = document.createElement('div');
   commentsContainer.classList.add('comments-container');
-  comments.forEach((comment) => {
-    commentsContainer.appendChild(createCommendChild(comment));
-  });
 
   const formHeader = document.createElement('h3');
   formHeader.classList.add('form-header');
