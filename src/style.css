@@ -97,7 +97,28 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  color: black;
   text-align: center;
   border-top: 2px solid black;
+}
+
+.home-page {
+  position: fixed;
+  width: 100%;
+  margin: 5%;
+}
+
+ul.episode-list {
+  list-style-type: none;
+  margin-top: -50px;
+  width: 80%;
+}
+
+ul.episode-list li {
+  display: inline-block;
+  width: 250px;
+}
+
+.comment-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

@@ -1,4 +1,5 @@
 import { createPopup, updatePopupComments } from './DOMfunctions.js';
+import { createSeasonList } from './homepage.js';
 
 const appId = '/B6a2ll1hsjifFXa5Lo8D';
 const addCommentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
@@ -20,4 +21,16 @@ export const fetchEpisode = async (episodeId) => {
     createPopup(epiDetails);
     fetchComments(episodeId);
   }
+};
+
+export const fetchSeason = async (seasonId) => {
+  const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      createSeasonList(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
