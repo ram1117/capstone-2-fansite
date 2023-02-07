@@ -1,5 +1,4 @@
-import { fetchSeason } from './modules/APIfunctions';
-import { fetchEpisode } from './modules/APIfunctions.js';
+import { fetchEpisode , fetchSeason } from './modules/APIfunctions.js';
 import './style.css';
 
 window.onload = () => {
