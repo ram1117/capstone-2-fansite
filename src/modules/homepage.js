@@ -10,7 +10,7 @@ export const createSeasonList = (episodeDetails) => {
     episodeTile.dataset.episodeId = episodeDetail.id;
     episodeTile.innerHTML = `
     <img class="episode-image" src="${episodeDetail.image.medium}" alt="episode image">
-    <h3 class="episode-number">Episode: ${episodeDetail.number}</h3>
+    <h3 class="episode-name">${episodeDetail.name}</h3>
     <button id="main-comment-popup" type="button">Comments</button>`;
     homePage.appendChild(episodeTile);
   });
