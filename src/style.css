@@ -1,6 +1,6 @@
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -8,6 +8,24 @@ body {
   display: flex;
   list-style-type: none;
   gap: 50px;
+}
+
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow-y: scroll;
+}
+
+.episode-tile {
+  border: solid 1px red;
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.episode-image {
+  width: 85%;
 }
 
 .popup-wrapper {
@@ -41,22 +59,21 @@ body {
   top: 2%;
 }
 
-.episode-img {
-  /* height: 90%; */
+.popup-episode-img {
   width: 90%;
   object-fit: contain;
 }
 
-.episode-details-wrapper {
+.popup-episode-details-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
 
-.episode-details-wrapper > * {
+.popup-episode-details-wrapper > * {
   width: 50%;
 }
 
-.comments-container {
+.popup-comments-container {
   width: 70%;
   height: 15vh;
   padding: 0 2%;
@@ -78,7 +95,7 @@ body {
   width: 25%;
 }
 
-#comments-form {
+#popup-comments-form {
   display: flex;
   flex-direction: column;
 }
@@ -101,24 +118,19 @@ body {
   border-top: 2px solid black;
 }
 
-.home-page {
-  position: fixed;
-  width: 100%;
-  margin: 5%;
-}
-
-ul.episode-list {
-  list-style-type: none;
-  margin-top: -50px;
-  width: 80%;
-}
-
-ul.episode-list li {
-  display: inline-block;
-  width: 250px;
-}
-
 .comment-button {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-page {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home-page {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
