@@ -1,9 +1,10 @@
-import { fetchEpisode, fetchSeason } from './modules/APIfunctions.js';
+import { fetchEpisode, fetchSeason, fetchLike } from './modules/APIfunctions.js';
 import './style.css';
 
 const seasons = ['130070', '58465', '58464'];
 window.onload = () => {
   fetchSeason(seasons[0]);
+  fetchLike();
 };
 
 const seasonbtn1 = document.querySelector('#season-1');

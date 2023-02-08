@@ -25,7 +25,7 @@ button {
 }
 
 #logo {
-  height: 80%;
+  height: 60%;
 }
 
 .navigation-list {
@@ -39,7 +39,7 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   overflow-y: auto;
-  margin: 5% auto;
+  margin: 25% auto;
 }
 
 .episode-tile {
@@ -51,6 +51,44 @@ button {
 
 .episode-image {
   width: 85%;
+}
+
+.episode-name {
+  font-size: 1.5em;
+}
+
+.header-wrapper {
+  width: 70%;
+  margin: 5% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likes-wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.likes-wrapper > * {
+  margin: 1% 0;
+}
+
+#heart-button {
+  font-size: 1.3em;
+}
+
+#heart-button:hover {
+  cursor: pointer;
+}
+
+#main-comment-popup {
+  border: none;
+  width: 60%;
+  padding: 5%;
+  font-size: 1.4em;
 }
 
 .popup-wrapper {
@@ -175,9 +213,15 @@ button {
   margin-bottom: 5px;
 }
 
+#like-button {
+  width: 50px;
+  height: 50px;
+}
+
 @media screen and (min-width: 768px) {
   .home-page {
     grid-template-columns: 1fr 1fr;
+    margin: 15% auto;
   }
 
   .popup {
@@ -201,6 +245,7 @@ button {
 @media screen and (min-width: 992px) {
   .home-page {
     grid-template-columns: 1fr 1fr 1fr;
+    margin: 10% auto;
   }
 
   #close-button {

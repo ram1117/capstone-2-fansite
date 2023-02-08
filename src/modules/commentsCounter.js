@@ -4,5 +4,4 @@ const countComments = (comments) => {
   comments.forEach(() => { count += 1; });
   counterElement.textContent = `(${count})`;
 };
-
 export default countComments;
