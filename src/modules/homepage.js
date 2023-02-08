@@ -7,19 +7,26 @@ export const createSeasonList = (episodeDetails) => {
   episodeDetails.forEach((episodeDetail) => {
     const episodeTile = document.createElement('div');
     episodeTile.classList.add('episode-tile');
+    episodeTile.id = episodeDetail.id;
     episodeTile.dataset.episodeId = episodeDetail.id;
     episodeTile.innerHTML = `
     <img class="episode-image" src="${episodeDetail.image.medium}" alt="episode image">
+    <div class="header-wrapper">
     <h3 class="episode-name">${episodeDetail.name}</h3>
-    <button id="like-button">Like button</button>
-    <p class="likes-count"></p>
+    <div class="likes-wrapper">
+    <p><i class="fa fa-heart" id="heart-button"></i></p>
+    <p class=""likes-text>Likes:<span class="likes-counter">(0)</span></p>
+    </div>
+    </div>
     <button id="main-comment-popup" type="button">Comments</button>`;
+
     homePage.appendChild(episodeTile);
   });
 };
 export const displayLikes = (likes) => {
-  const display = document.querySelector('.likes-count');
   likes.forEach((like) => {
-    display.textContent = `Likes: ${like.likes}`;
+    const tile = document.getElementById(like.item_id);
+    const likeCounter = tile.querySelector('.likes-counter');
+    likeCounter.textContent = `(${like.likes})`;
   });
 };
