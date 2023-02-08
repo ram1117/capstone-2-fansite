@@ -1,6 +1,6 @@
-import countComments from './commentsCounter.js';
 // eslint-disable-next-line
 import { postComments } from './APIfunctions.js';
+import { countComments } from './commentsCounter.js';
 
 export const showErrorMsg = (msg) => {
   const errorDiv = document.createElement('h5');

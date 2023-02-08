@@ -1,9 +1,10 @@
 // eslint-disable-next-line
 import { createPopup, updatePopupComments } from './DOMfunctions.js';
-import { createSeasonList } from './homepage.js';
+import { createSeasonList, displayLikes } from './homepage.js';
 
 const appId = '/B6a2ll1hsjifFXa5Lo8D';
 const commentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
+const likeURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/likes`;
 
 export const fetchComments = async (episodeId) => {
   let comments = [];
@@ -43,4 +44,14 @@ export const fetchSeason = async (seasonId) => {
     .catch((error) => {
       console.error(error);
     });
+};
+
+export const fetchLike = async () => {
+  let likes = [];
+  const fetchLikeUrl = `${likeURL}`;
+  const likeResponse = await fetch(fetchLikeUrl);
+  if (likeResponse.status === 200) {
+    likes = [...await likeResponse.json()];
+    displayLikes(likes);
+  }
 };
