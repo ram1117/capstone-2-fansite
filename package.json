@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ram1117/capstone-2-fansite#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
     "css-loader": "^6.7.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
