@@ -2,7 +2,7 @@
 import { createPopup, updatePopupComments } from './DOMfunctions.js';
 import { createSeasonList, displayLikes } from './homepage.js';
 
-const appId = '/B6a2ll1hsjifFXa5Lo8D';
+const appId = '/KKlgY0e6iTLZYxIsAnMC';
 const commentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
 const likeURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/likes`;
 
@@ -21,7 +21,7 @@ export const postComments = async (commentObj) => {
     method: 'POST',
     body: JSON.stringify(commentObj),
     headers: { 'Content-type': 'application/json' },
-  }).then((response) => response.text());
+  });
   fetchComments(commentObj.item_id);
 };
 
@@ -48,10 +48,18 @@ export const fetchSeason = async (seasonId) => {
 
 export const fetchLike = async () => {
   let likes = [];
-  const fetchLikeUrl = `${likeURL}`;
-  const likeResponse = await fetch(fetchLikeUrl);
+  const likeResponse = await fetch(likeURL);
   if (likeResponse.status === 200) {
     likes = [...await likeResponse.json()];
     displayLikes(likes);
   }
+};
+
+export const postNewLike = async (episodeId) => {
+  await fetch(likeURL, {
+    method: 'POST',
+    body: JSON.stringify({ item_id: episodeId }),
+    headers: { 'Content-type': 'application/json' },
+  });
+  fetchLike();
 };
