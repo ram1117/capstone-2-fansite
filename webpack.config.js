@@ -25,12 +25,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(ttf|otf)$/i,
+        test: /\.(png|svg|jpg|ttf|otf)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.(png|svg|jpg)$/i,
-        type: 'asset/resource',
+        test: /\.html$/i,
+        use:['html-loader'],
       },
     ],
   },
