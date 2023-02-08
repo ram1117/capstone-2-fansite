@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
-  font-family: Lato ,'sans serif';
+  font-family: Lato, sans-serif;
 }
 
 .navigation-bar {
@@ -21,17 +21,16 @@ body {
   align-items: center;
 }
 
-#logo{
+#logo {
   height: 100%;
 }
 
-.navigation-list{
+.navigation-list {
   display: flex;
   width: 70%;
   justify-content: space-around;
   list-style: none;
 }
-
 
 .home-page {
   display: grid;
