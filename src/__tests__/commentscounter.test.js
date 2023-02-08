@@ -4,10 +4,10 @@ const arr1 = [];
 const arr2 = [{ id: 1, comment: `comment no: ${1}` }, { id: 2, comment: `comment no: ${2}` }, { id: 3, comment: `comment no: ${3}` }];
 const arr3 = [];
 const arr4 = [];
-for (let i = 1; i < 100; i++) {
+for (let i = 1; i < 100; i += 1) {
   arr3.push({ id: i, comment: `comment no: ${i}` });
 }
-for (let i = 1; i < 10000; i++) {
+for (let i = 1; i < 10000; i += 1) {
   arr4.push({ id: i, comment: `comment no: ${i}` });
 }
 
