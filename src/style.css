@@ -1,17 +1,20 @@
 @font-face {
   font-family: customFont;
-  src: url('../src/fonts/Alycidon-Condensed.otf');
+  src: url('../src/fonts/CLRNDNC.TTF');
 }
 
 body {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
-  font-family: Lato, sans-serif;
+  font-family: customFont, sans-serif;
+}
+
+button {
+  font-family: customFont, sans-serif;
 }
 
 .navigation-bar {
-  border: solid 1px red;
   position: fixed;
   width: 100%;
   top: 0;
@@ -22,7 +25,7 @@ body {
 }
 
 #logo {
-  height: 100%;
+  height: 80%;
 }
 
 .navigation-list {
@@ -35,12 +38,11 @@ body {
 .home-page {
   display: grid;
   grid-template-columns: 1fr;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 5% auto;
 }
 
 .episode-tile {
-  border: solid 1px red;
   margin: 5%;
   display: flex;
   flex-direction: column;
@@ -60,14 +62,14 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: auto;
-  background-color: black;
+  overflow-y: scroll;
+  background-color: rgb(202, 202, 202);
 }
 
 .popup {
-  width: 70%;
+  width: 90%;
   margin: 5% auto;
-  padding: 5%;
+  padding: 10% 5%;
   background: #fff;
   position: relative;
   display: flex;
@@ -76,7 +78,7 @@ body {
 }
 
 #close-button {
-  font-size: 3em;
+  font-size: 2em;
   position: absolute;
   right: 2%;
   top: 2%;
@@ -87,13 +89,24 @@ body {
   object-fit: contain;
 }
 
+.popup-episode-header {
+  font-size: 1.7em;
+}
+
+.popup-comments-header,
+.popup-form-header {
+  font-size: 1.5em;
+}
+
 .popup-episode-details-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  width: 70%;
+  grid-template-columns: 1fr 1fr;
 }
 
 .popup-episode-details-wrapper > * {
-  width: 50%;
+  margin: 0;
+  padding: 1% 0;
 }
 
 .popup-comments-container {
@@ -110,26 +123,42 @@ body {
 }
 
 .comment-line > * {
-  margin: 1% 0;
+  margin: 1% 2%;
 }
 
-.comment-date,
+.comment-date {
+  width: 20%;
+}
+
 .comment-user {
-  width: 25%;
+  width: 35%;
+}
+
+.comment-text {
+  width: 45%;
 }
 
 #popup-comments-form {
+  width: 70%;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+}
+
+.form-input {
+  border: none;
+  border-radius: 10px;
+  margin: 1% 0;
+  padding: 3%;
 }
 
 .form-label {
   display: none;
 }
 
-.form-input {
-  margin: 5%;
-  padding: 3%;
+.formsubmit-btn {
+  width: 50%;
+  font-size: 1.1em;
 }
 
 .footer {
@@ -150,10 +179,48 @@ body {
   .home-page {
     grid-template-columns: 1fr 1fr;
   }
+
+  .popup {
+    width: 70%;
+    margin: 10% auto;
+  }
+
+  #close-button {
+    font-size: 2.4em;
+  }
+
+  .popup-episode-details-wrapper > * {
+    font-size: 1.4em;
+  }
+
+  .popup-episode-header {
+    font-size: 2em;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .home-page {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #close-button {
+    font-size: 3em;
+  }
+
+  .popup-episode-header {
+    font-size: 2em;
+  }
+
+  .popup-comments-header,
+  .popup-form-header {
+    font-size: 1.8em;
+  }
+
+  .comment-line > * {
+    font-size: 1.3em;
+  }
+
+  .formsubmit-btn {
+    font-size: 1.5em;
   }
 }

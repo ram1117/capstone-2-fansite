@@ -43,6 +43,7 @@ export const updatePopupComments = (comments) => {
 
 const dismissPopup = (popupElement) => {
   document.body.removeChild(popupElement);
+  document.body.style.overflow = 'auto';
 };
 
 const getInputFromForm = (epiId) => {
@@ -57,6 +58,9 @@ export const createPopup = (epiDetails) => {
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.dataset.episodeId = epiDetails.id;
+  popup.style.background = `radial-gradient(rgba(255,255,255, 0.75),
+  rgba(209,209,209, 0.75)),url(${epiDetails.image.medium}), 0, 0, no-repeat`;
+  popup.style.backgroundSize = 'cover';
 
   const closeButton = document.createElement('i');
   closeButton.classList.add('fa', 'fa-close');
@@ -71,14 +75,14 @@ export const createPopup = (epiDetails) => {
   mainImg.alt = 'Image from the episode';
 
   const epiHeader = document.createElement('h2');
-  epiHeader.classList.add('episode-header');
+  epiHeader.classList.add('popup-episode-header');
   epiHeader.textContent = epiDetails.name;
 
   const epiDetailsWrapper = document.createElement('div');
   epiDetailsWrapper.classList.add('popup-episode-details-wrapper');
 
   const rating = document.createElement('p');
-  rating.textContent = `Rating: ${epiDetails.rating.average}`;
+  rating.textContent = `Avg. Rating: ${epiDetails.rating.average}`;
 
   const airDate = document.createElement('p');
   airDate.textContent = `Aired Date: ${epiDetails.airdate}`;
@@ -86,10 +90,8 @@ export const createPopup = (epiDetails) => {
   const seasonNo = document.createElement('p');
   seasonNo.textContent = `Season: ${epiDetails.season}`;
 
-  const episodeLink = document.createElement('a');
-  episodeLink.textContent = 'Episode Link';
-  episodeLink.href = epiDetails.url;
-  episodeLink.target = '_blank';
+  const episodeLink = document.createElement('p');
+  episodeLink.innerHTML = `More details: <a href=${epiDetails.url} target='_blank'>Link...</a>`;
 
   epiDetailsWrapper.appendChild(rating);
   epiDetailsWrapper.appendChild(airDate);
@@ -97,7 +99,7 @@ export const createPopup = (epiDetails) => {
   epiDetailsWrapper.appendChild(episodeLink);
 
   const commentsHeader = document.createElement('h3');
-  commentsHeader.classList.add('comments-header');
+  commentsHeader.classList.add('popup-comments-header');
   commentsHeader.textContent = 'Comments';
   const commentsCounter = document.createElement('span');
   commentsCounter.classList.add('comments-count');
@@ -118,9 +120,9 @@ export const createPopup = (epiDetails) => {
   commentForm.innerHTML = `<label class="form-label" for="name">Name</label>
   <input id="input-name" class="form-input" type="text" placeholder="Your Name..." required>
   <label class="form-label" for="comment">Comment</label>
-  <textarea id="input-comment" class="form-input" type="text" placeholder="Your Insights..." rows="5" required></textarea>
+  <textarea id="input-comment" class="form-input" type="text" placeholder="Your Insights..." rows="3" required></textarea>
   <label class="form-label" for="submitbtn">Submit</label>      
-  <button id="submitbtn" class="formsubmit-btn" type="submit">Comment</button>`;
+  <button id="submitbtn" class="form-input formsubmit-btn" type="submit">Comment</button>`;
 
   commentForm.onsubmit = (event) => {
     event.preventDefault();
@@ -139,4 +141,5 @@ export const createPopup = (epiDetails) => {
 
   popupWrapper.appendChild(popup);
   document.body.appendChild(popupWrapper);
+  document.body.style.overflow = 'hidden';
 };
