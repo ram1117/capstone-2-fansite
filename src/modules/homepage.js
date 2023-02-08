@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 export const createSeasonList = (episodeDetails) => {
   const homePage = document.querySelector('.home-page');
-  while(homePage.lastChild){
+  while (homePage.lastChild) {
     homePage.removeChild(homePage.lastChild);
   }
   episodeDetails.forEach((episodeDetail) => {
@@ -26,7 +26,7 @@ export const createSeasonList = (episodeDetails) => {
 export const displayLikes = (likes) => {
   likes.forEach((like) => {
     const tile = document.getElementById(like.item_id);
-    if(tile!==null){
+    if (tile !== null) {
       const likeCounter = tile.querySelector('.likes-counter');
       likeCounter.textContent = `(${like.likes})`;
     }

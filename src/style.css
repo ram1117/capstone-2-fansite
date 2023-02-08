@@ -72,7 +72,7 @@ button {
   align-items: center;
 }
 
-.likes-wrapper>* {
+.likes-wrapper > * {
   margin: 1% 0;
 }
 
@@ -80,7 +80,7 @@ button {
   font-size: 1.2em;
 }
 
-.heart-animation{
+.heart-animation {
   animation-name: heartLiked;
   animation-duration: 3s;
 }
@@ -158,7 +158,7 @@ button {
   grid-template-columns: 1fr 1fr;
 }
 
-.popup-episode-details-wrapper>* {
+.popup-episode-details-wrapper > * {
   margin: 0;
   padding: 1% 0;
 }
@@ -176,7 +176,7 @@ button {
   margin: 0;
 }
 
-.comment-line>* {
+.comment-line > * {
   margin: 1% 2%;
 }
 
@@ -249,7 +249,7 @@ button:hover,
     font-size: 2.4em;
   }
 
-  .popup-episode-details-wrapper>* {
+  .popup-episode-details-wrapper > * {
     font-size: 1.4em;
   }
 
@@ -289,7 +289,7 @@ button:hover,
     font-size: 1.8em;
   }
 
-  .comment-line>* {
+  .comment-line > * {
     font-size: 1.3em;
   }
 
