@@ -66,7 +66,7 @@ button {
 }
 
 .likes-wrapper {
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,11 +77,27 @@ button {
 }
 
 #heart-button {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
-#heart-button:hover {
-  cursor: pointer;
+.heart-animation {
+  animation-name: heartLiked;
+  animation-duration: 3s;
+}
+
+@keyframes heartLiked {
+  0% {
+    font-size: 2em;
+    color: red;
+  }
+
+  100% {
+    color: black;
+  }
+}
+
+.likes-text {
+  font-size: 1.3em;
 }
 
 #main-comment-popup {
@@ -208,20 +224,20 @@ button {
   border-top: 2px solid black;
 }
 
-.comment-button {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-#like-button {
-  width: 50px;
-  height: 50px;
+#heart-button:hover,
+button:hover,
+#close-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
   .home-page {
     grid-template-columns: 1fr 1fr;
     margin: 15% auto;
+  }
+
+  .episode-name {
+    font-size: 2em;
   }
 
   .popup {
@@ -240,12 +256,24 @@ button {
   .popup-episode-header {
     font-size: 2em;
   }
+
+  #heart-button {
+    font-size: 1.3em;
+  }
+
+  .likes-text {
+    font-size: 1.6em;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .home-page {
     grid-template-columns: 1fr 1fr 1fr;
     margin: 10% auto;
+  }
+
+  .episode-name {
+    font-size: 2.3em;
   }
 
   #close-button {
@@ -267,5 +295,17 @@ button {
 
   .formsubmit-btn {
     font-size: 1.5em;
+  }
+
+  #heart-button {
+    font-size: 1.5em;
+  }
+
+  .likes-text {
+    font-size: 1.7em;
+  }
+
+  #main-comment-popup {
+    font-size: 1.8em;
   }
 }

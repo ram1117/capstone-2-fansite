@@ -1,8 +1,8 @@
 // eslint-disable-next-line
 export const createSeasonList = (episodeDetails) => {
   const homePage = document.querySelector('.home-page');
-  if (homePage.childNodes.length > 0) {
-    homePage.innerHTML = '';
+  while (homePage.lastChild) {
+    homePage.removeChild(homePage.lastChild);
   }
   episodeDetails.forEach((episodeDetail) => {
     const episodeTile = document.createElement('div');
@@ -14,8 +14,8 @@ export const createSeasonList = (episodeDetails) => {
     <div class="header-wrapper">
     <h3 class="episode-name">${episodeDetail.name}</h3>
     <div class="likes-wrapper">
-    <p><i class="fa fa-heart" id="heart-button"></i></p>
-    <p class=""likes-text>Likes:<span class="likes-counter">(0)</span></p>
+    <p><i class="fa fa-heart" id="heart-button" data-episode-Id=${episodeDetail.id}></i></p>
+    <p class="likes-text">Likes:<span class="likes-counter">(0)</span></p>
     </div>
     </div>
     <button id="main-comment-popup" type="button">Comments</button>`;
@@ -26,7 +26,9 @@ export const createSeasonList = (episodeDetails) => {
 export const displayLikes = (likes) => {
   likes.forEach((like) => {
     const tile = document.getElementById(like.item_id);
-    const likeCounter = tile.querySelector('.likes-counter');
-    likeCounter.textContent = `(${like.likes})`;
+    if (tile !== null) {
+      const likeCounter = tile.querySelector('.likes-counter');
+      likeCounter.textContent = `(${like.likes})`;
+    }
   });
 };
