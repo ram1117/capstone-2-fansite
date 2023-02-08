@@ -3,7 +3,7 @@
 <div align="center">
   <br/>
 
-  <h3><b>[Project Name] Readme</b></h3>
+  <h3><b>Peaky Blinders fanpage</b></h3>
 
 </div>
 
@@ -33,48 +33,28 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Peaky Blinders Fanpage <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**Peaky Blinders Fanpage** is a fan page for the very popular Peaky Blinders series. The project is the second Capestone project in the Microverse curriculum. The project uses Webpack for bundling, TVMaze API for episode details and Involvement API for comments and likes for each episode.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
-  <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li>HTML/CSS</li>
+    <li>Javascript</li>
+    <li>Webpack</li>
+    <li>Jest</li>
   </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Home Page and Popup windows**
+- **Responsive webpage**
+- **Page design allows adding more seasons**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,9 +62,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](https://ram1117.github.io/capstone-2-fansite/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,83 +70,66 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+In order to run this project you need the following installed in the machine:
+<ul>
+<li>Git</li>
+<li>Nodejs</li>
+<li>Github account</li>
+<li>Code editor(eg:VS code) or your preferred IDE</li>
+<li>Web browser of your choice</li>
+</ul>
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  cd <desired folder>
+  git clone https://github.com/ram1117/capstone-2-fansite.git
 ```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  cd <cloned repo>
+  npm install
 ```
---->
+The commands will install the required node modules, used in the project, in your local machine.
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+  npm run start
 ```
---->
+
+The above command will start webpack devserver and the webpage will be rendered in your default browser.
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+npm run test
 ```
---->
+The above command will run the test suites that come with the project, using `jest`. You can add more test cases to the `src/__tests__/` folder.
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
-
 ```sh
-
+npm run build
 ```
- -->
+
+The above command creates webpack distribution files in `/dist` folder. The files can be deployed using Github pages or any other hosting service.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,19 +137,15 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Ram Kumar Karuppusamy**
 
-👤 **Author1**
+- GitHub: [@ram1117](https://github.com/ram1117)
+- Twitter: [@ram_karuppusamy](https://twitter.com/ram_karuppusamy)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Usama Masood**
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@UsamaMasood12](https://github.com/UsamaMasood12)
+- Twitter: [@Usama____Masood](https://twitter.com/Usama____Masood)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,11 +153,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- **Add more season details**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,9 +163,9 @@ Example:
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
+Please feel free to contribute to the project. Please log issues and bugs using the below link.
 
-Feel free to check the [issues page](../../issues/).
+[issues page](https://github.com/ram1117/capstone-2-fansite/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,9 +173,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project please provide a ⭐️ to the [project github repo](https://github.com/ram1117/capstone-2-fansite). 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,9 +181,7 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+We would like to thank [TVMaze](https://www.tvmaze.com) for the free API service.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -238,15 +189,13 @@ I would like to thank...
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- **Can images and other assets used in the project redistributed or reused?**
 
-- **[Question_1]**
+  - The images are obtained from TVmaze API and may be subject to copyright. Please refer the API documentation for more details.
 
-  - [Answer_1]
+- **Can this project be modified?**
 
-- **[Question_2]**
-
-  - [Answer_2]
+  - We are open to collaborating, please contact us using our twitter or github handles. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -255,7 +204,5 @@ I would like to thank...
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
