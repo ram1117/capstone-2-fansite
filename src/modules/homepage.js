@@ -18,8 +18,7 @@ export const createSeasonList = (episodeDetails) => {
     <p class="likes-text">Likes:<span class="likes-counter">(0)</span></p>
     </div>
     </div>
-    <button id="main-comment-popup" type="button">Comments</button>`;
-
+    <button class="button-style" id="main-comment-popup" type="button">Comments</button>`;
     homePage.appendChild(episodeTile);
   });
 };

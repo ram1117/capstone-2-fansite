@@ -22,6 +22,8 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background: rgb(135, 135, 135);
+  opacity: 1;
 }
 
 #logo {
@@ -29,10 +31,20 @@ button {
 }
 
 .navigation-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 70%;
-  justify-content: space-around;
   list-style: none;
+  padding: 0;
+}
+
+#season-1,
+#season-2,
+#season-3 {
+  text-align: center;
+  padding: 5%;
+  margin: 2% 5%;
+  font-size: 1.2em;
 }
 
 .home-page {
@@ -101,9 +113,8 @@ button {
 }
 
 #main-comment-popup {
-  border: none;
   width: 60%;
-  padding: 5%;
+  padding: 3%;
   font-size: 1.4em;
 }
 
@@ -167,7 +178,7 @@ button {
   width: 70%;
   height: 15vh;
   padding: 0 2%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .comment-line {
@@ -221,12 +232,27 @@ button {
   bottom: 0;
   width: 100%;
   text-align: center;
-  border-top: 2px solid black;
+  background: rgb(134, 134, 134);
+  opacity: 1;
+  font-size: 1.3em;
+}
+
+.footer > p > a {
+  color: #04d9ff;
+}
+
+.button-style {
+  background: #fff;
+  border: solid 5px black;
+  border-radius: 10px;
 }
 
 #heart-button:hover,
 button:hover,
-#close-button:hover {
+#close-button:hover,
+#season-1:hover,
+#season-2:hover,
+#season-3:hover {
   cursor: pointer;
 }
 
@@ -236,8 +262,18 @@ button:hover,
     margin: 15% auto;
   }
 
+  #logo {
+    height: 75%;
+  }
+
   .episode-name {
-    font-size: 2em;
+    font-size: 1.7em;
+  }
+
+  #season-1,
+  #season-2,
+  #season-3 {
+    font-size: 1.5em;
   }
 
   .popup {
@@ -272,8 +308,14 @@ button:hover,
     margin: 10% auto;
   }
 
+  #season-1,
+  #season-2,
+  #season-3 {
+    font-size: 1.5em;
+  }
+
   .episode-name {
-    font-size: 2.3em;
+    font-size: 2em;
   }
 
   #close-button {

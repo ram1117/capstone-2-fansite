@@ -38,7 +38,7 @@ export const updatePopupComments = (comments) => {
   comments.forEach((comment) => {
     cmtContainer.appendChild(createCommentChild(comment));
   });
-  countComments(comments);
+  countComments();
 };
 
 const dismissPopup = (popupElement) => {
