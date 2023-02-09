@@ -1,0 +1,371 @@
+@font-face {
+  font-family: customFont;
+  src: url('../src/fonts/CLRNDNC.TTF');
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: customFont, sans-serif;
+  background: linear-gradient(0.1turn, rgb(166, 166, 166), #fff, rgb(166, 166, 166));
+}
+
+button {
+  font-family: customFont, sans-serif;
+}
+
+.navigation-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(49, 49, 49);
+  opacity: 1;
+}
+
+#logo {
+  height: 60%;
+}
+
+.navigation-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 70%;
+  list-style: none;
+  padding: 0;
+}
+
+#season-1,
+#season-2,
+#season-3 {
+  text-align: center;
+  padding: 5%;
+  margin: 2% 5%;
+  font-size: 1.2em;
+  color: #fff;
+  border: solid 2px #fff;
+  border-radius: 20px;
+}
+
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow-y: auto;
+  margin: 25% auto;
+}
+
+.episode-tile {
+  margin: 5%;
+  padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed rgb(49, 49, 49);
+  border-radius: 20px;
+  color: rgb(59, 53, 53);
+}
+
+.episode-image {
+  width: 85%;
+  border-radius: 15px;
+}
+
+.episode-name {
+  font-size: 1.5em;
+}
+
+.header-wrapper {
+  width: 70%;
+  margin: 5% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likes-wrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.likes-wrapper > * {
+  margin: 1% 0;
+}
+
+#heart-button {
+  font-size: 1.2em;
+}
+
+.heart-animation {
+  animation-name: heartLiked;
+  animation-duration: 3s;
+}
+
+@keyframes heartLiked {
+  0% {
+    font-size: 2em;
+    color: red;
+  }
+
+  100% {
+    color: black;
+  }
+}
+
+.likes-text {
+  font-size: 1.3em;
+}
+
+#main-comment-popup {
+  width: 60%;
+  padding: 3%;
+  font-size: 1.4em;
+  color: rgb(59, 53, 53);
+}
+
+.popup-wrapper {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
+  background-color: rgb(202, 202, 202);
+}
+
+.popup {
+  width: 90%;
+  margin: 5% auto;
+  padding: 10% 5%;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#close-button {
+  font-size: 2em;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+
+.popup-episode-img {
+  width: 90%;
+  object-fit: contain;
+}
+
+.popup-episode-header {
+  font-size: 1.7em;
+}
+
+.popup-comments-header,
+.popup-form-header {
+  font-size: 1.5em;
+}
+
+.popup-episode-details-wrapper {
+  display: grid;
+  width: 70%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.popup-episode-details-wrapper > * {
+  margin: 0;
+  padding: 1% 0;
+}
+
+.popup-comments-container {
+  width: 70%;
+  height: 15vh;
+  padding: 0 2%;
+  overflow-y: auto;
+}
+
+.comment-line {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-line > * {
+  margin: 1% 2%;
+}
+
+.comment-date {
+  width: 20%;
+}
+
+.comment-user {
+  width: 35%;
+}
+
+.comment-text {
+  width: 45%;
+}
+
+#popup-comments-form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.form-input {
+  border: none;
+  border-radius: 10px;
+  margin: 1% 0;
+  padding: 3%;
+  font-size: 1.1em;
+  font-family: customFont, sans-serif;
+}
+
+.form-label {
+  display: none;
+}
+
+.formsubmit-btn {
+  width: 50%;
+  font-size: 1.1em;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgb(49, 49, 49);
+  opacity: 1;
+  font-size: 1.3em;
+  color: #fff;
+}
+
+.footer > p > a {
+  color: #04d9ff;
+}
+
+.button-style {
+  background: #fff;
+  border: solid 3px rgb(49, 49, 49);
+  border-radius: 10px;
+}
+
+#heart-button:hover,
+button:hover,
+#close-button:hover,
+#season-1:hover,
+#season-2:hover,
+#season-3:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .home-page {
+    grid-template-columns: 1fr 1fr;
+    margin: 15% auto;
+  }
+
+  #logo {
+    height: 75%;
+  }
+
+  .episode-name {
+    font-size: 1.7em;
+  }
+
+  #season-1,
+  #season-2,
+  #season-3 {
+    font-size: 1.5em;
+  }
+
+  .popup {
+    width: 70%;
+    margin: 10% auto;
+  }
+
+  #close-button {
+    font-size: 2.4em;
+  }
+
+  .popup-episode-details-wrapper > * {
+    font-size: 1.4em;
+  }
+
+  .popup-episode-header {
+    font-size: 2em;
+  }
+
+  #heart-button {
+    font-size: 1.3em;
+  }
+
+  .likes-text {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home-page {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10% auto;
+  }
+
+  #season-1,
+  #season-2,
+  #season-3 {
+    font-size: 1.5em;
+  }
+
+  .episode-name {
+    font-size: 2em;
+  }
+
+  #close-button {
+    font-size: 3em;
+  }
+
+  .popup-episode-header {
+    font-size: 2em;
+  }
+
+  .popup-comments-header,
+  .popup-form-header {
+    font-size: 1.8em;
+  }
+
+  .comment-line > * {
+    font-size: 1.3em;
+  }
+
+  .formsubmit-btn {
+    font-size: 1.5em;
+  }
+
+  #heart-button {
+    font-size: 1.5em;
+  }
+
+  .likes-text {
+    font-size: 1.7em;
+  }
+
+  #main-comment-popup {
+    font-size: 1.8em;
+  }
+
+  .form-input {
+    font-family: customFont, sans-serif;
+    font-size: 1.6em;
+  }
+}
