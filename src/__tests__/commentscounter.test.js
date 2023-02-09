@@ -1,8 +1,10 @@
 import commentsCounter from '../modules/commentsCounter.js';
 
+// container has no comments
 const div1 = document.createElement('div');
 div1.classList.add('popup-comments-container');
 
+// container has 9 comments
 const div2 = document.createElement('div');
 div2.classList.add('popup-comments-container');
 for (let i = 1; i < 10; i += 1) {
@@ -10,6 +12,7 @@ for (let i = 1; i < 10; i += 1) {
   div2.appendChild(div);
 }
 
+// container has 9999 comments
 const div3 = document.createElement('div');
 div3.classList.add('popup-comments-container');
 for (let i = 1; i < 10000; i += 1) {
