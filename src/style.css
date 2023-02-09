@@ -71,6 +71,7 @@ button {
 
 .episode-image {
   width: 85%;
+  border-radius: 15px;
 }
 
 .episode-name {
@@ -224,6 +225,8 @@ button {
   border-radius: 10px;
   margin: 1% 0;
   padding: 3%;
+  font-size: 1.1em;
+  font-family: customFont, sans-serif;
 }
 
 .form-label {
@@ -359,5 +362,10 @@ button:hover,
 
   #main-comment-popup {
     font-size: 1.8em;
+  }
+
+  .form-input {
+    font-family: customFont, sans-serif;
+    font-size: 1.6em;
   }
 }
