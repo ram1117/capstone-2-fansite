@@ -122,7 +122,7 @@ export const createPopup = (epiDetails) => {
   <label class="form-label" for="comment">Comment</label>
   <textarea id="input-comment" class="form-input" type="text" placeholder="Your Insights..." rows="3" required></textarea>
   <label class="form-label" for="submitbtn">Submit</label>      
-  <button id="submitbtn" class="form-input formsubmit-btn" type="submit">Comment</button>`;
+  <button id="submitbtn" class="form-input button-style formsubmit-btn" type="submit">Comment</button>`;
 
   commentForm.onsubmit = (event) => {
     event.preventDefault();
