@@ -1,21 +1,42 @@
 import commentsCounter from '../modules/commentsCounter.js';
 
-const arr1 = [];
-const arr2 = [{ id: 1, comment: `comment no: ${1}` }, { id: 2, comment: `comment no: ${2}` }, { id: 3, comment: `comment no: ${3}` }];
-const arr3 = [];
-const arr4 = [];
-for (let i = 1; i < 100; i += 1) {
-  arr3.push({ id: i, comment: `comment no: ${i}` });
-}
-for (let i = 1; i < 10000; i += 1) {
-  arr4.push({ id: i, comment: `comment no: ${i}` });
+const div1 = document.createElement('div');
+div1.classList.add('popup-comments-container');
+
+const div2 = document.createElement('div');
+div2.classList.add('popup-comments-container');
+for (let i = 1; i < 10; i += 1) {
+  const div = document.createElement('div');
+  div2.appendChild(div);
 }
 
-describe.each([[arr1, '(0)'], [arr2, '(3)'], [arr3, '(99)'], [arr4, '(9999)']])('testing comments counter function:', (arr, expected) => {
+const div3 = document.createElement('div');
+div3.classList.add('popup-comments-container');
+for (let i = 1; i < 10000; i += 1) {
+  const div = document.createElement('div');
+  div3.appendChild(div);
+}
+
+test(`testing counter for ${div1.childNodes.length} items`, () => {
   document.body.innerHTML = '<span class="comments-count"></span>';
-  commentsCounter(arr);
-  const countElement = document.querySelector('.comments-count');
-  test(`testing counter using array with : ${arr.length} items`, () => {
-    expect(countElement.innerHTML).toBe(expected);
-  });
+  document.body.appendChild(div1);
+  commentsCounter();
+  const spanEl = document.body.querySelector('.comments-count');
+  expect(spanEl.innerHTML).toBe('(0)');
+});
+
+test(`testing counter for ${div2.childNodes.length} items`, () => {
+  document.body.innerHTML = '<span class="comments-count"></span>';
+  document.body.appendChild(div2);
+  commentsCounter();
+  const spanEl = document.body.querySelector('.comments-count');
+  expect(spanEl.innerHTML).toBe('(9)');
+});
+
+test(`testing counter for ${div3.childNodes.length} items`, () => {
+  document.body.innerHTML = '<span class="comments-count"></span>';
+  document.body.appendChild(div3);
+  commentsCounter();
+  const spanEl = document.body.querySelector('.comments-count');
+  expect(spanEl.innerHTML).toBe('(9999)');
 });
