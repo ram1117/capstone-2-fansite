@@ -64,6 +64,8 @@
 
 - [Live Demo Link](https://ram1117.github.io/capstone-2-fansite/dist/)
 
+A video presentation of the project can be found in this [Video Link](https://drive.google.com/file/d/1yt9o9e48uP9G_0RLcycF9AQdtIunEBnK/view?usp=share_link)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
