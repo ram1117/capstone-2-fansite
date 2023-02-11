@@ -47,7 +47,7 @@ button {
   margin: 2% 5%;
   font-size: 1.2em;
   color: #fff;
-  border: solid 2px #fff;
+  border: dashed 2px #fff;
   border-radius: 20px;
 }
 
@@ -143,25 +143,29 @@ button {
 
 .popup {
   width: 90%;
-  margin: 5% auto;
-  padding: 10% 5%;
+  margin: 5%;
+  padding: 10% 0;
   background: #fff;
+  color: rgb(59, 53, 53);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px dashed rgb(49, 49, 49);
+  border-radius: 20px;
 }
 
 #close-button {
   font-size: 2em;
   position: absolute;
   right: 2%;
-  top: 2%;
+  top: 1%;
 }
 
 .popup-episode-img {
   width: 90%;
   object-fit: contain;
+  border-radius: 15px;
 }
 
 .popup-episode-header {
@@ -236,6 +240,7 @@ button {
 .formsubmit-btn {
   width: 50%;
   font-size: 1.1em;
+  color: rgb(59, 53, 53);
 }
 
 .footer {
@@ -300,6 +305,10 @@ button:hover,
 
   .popup-episode-details-wrapper > * {
     font-size: 1.4em;
+  }
+
+  .popup-episode-img {
+    border-radius: 25px;
   }
 
   .popup-episode-header {
