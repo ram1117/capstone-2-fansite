@@ -2,7 +2,7 @@ export type Comment = {
   username: string;
   creation_date?: string;
   comment: string;
-  item_id:string;
+  item_id: string;
 };
 
 export type Episode = {
@@ -18,4 +18,9 @@ export type Episode = {
   rating: {
     average: number;
   };
+};
+
+export type Like = {
+  item_id: string;
+  likes: number;
 };
