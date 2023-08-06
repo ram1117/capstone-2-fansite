@@ -1,14 +1,15 @@
 // eslint-disable-next-line
-import { postComments } from './APIfunctions.js';
-import countComments from './commentsCounter.js';
+import { postComments } from './APIfunctions';
+import countComments from './commentsCounter';
+import { Comment,Episode } from './types/type';
 
-export const showErrorMsg = (msg) => {
+export const showErrorMsg = (msg: string) => {
   const errorDiv = document.createElement('h5');
   errorDiv.textContent = msg;
   document.body.appendChild(errorDiv);
 };
 
-const createCommentChild = (comment) => {
+const createCommentChild = (comment: Comment) => {
   const commentLine = document.createElement('div');
   commentLine.classList.add('comment-line');
   const commentDate = document.createElement('p');
@@ -30,29 +31,33 @@ const createCommentChild = (comment) => {
   return commentLine;
 };
 
-export const updatePopupComments = (comments) => {
+export const updatePopupComments = (comments: Comment[]) => {
   const cmtContainer = document.querySelector('.popup-comments-container');
   while (cmtContainer.firstChild) {
     cmtContainer.removeChild(cmtContainer.firstChild);
   }
-  comments.forEach((comment) => {
+  comments.forEach((comment: Comment) => {
     cmtContainer.appendChild(createCommentChild(comment));
   });
   countComments();
 };
 
-const dismissPopup = (popupElement) => {
+const dismissPopup = (popupElement: HTMLDivElement) => {
   document.body.removeChild(popupElement);
   document.body.style.overflow = 'auto';
 };
 
-const getInputFromForm = (epiId) => {
-  const nameVal = document.querySelector('#input-name').value;
-  const CmmtVal = document.querySelector('#input-comment').value;
+const getInputFromForm = (epiId: string) => {
+  const { value: nameVal } = document.querySelector(
+    '#input-name'
+  ) as HTMLInputElement;
+  const { value: CmmtVal } = document.querySelector(
+    '#input-comment'
+  ) as HTMLInputElement;
   postComments({ item_id: epiId, username: nameVal, comment: CmmtVal });
 };
 
-export const createPopup = (epiDetails) => {
+export const createPopup = (epiDetails: Episode) => {
   const popupWrapper = document.createElement('div');
   popupWrapper.classList.add('popup-wrapper');
   const popup = document.createElement('div');
@@ -126,7 +131,8 @@ export const createPopup = (epiDetails) => {
 
   commentForm.onsubmit = (event) => {
     event.preventDefault();
-    getInputFromForm(commentForm.parentNode.dataset.episodeId);
+    const parent = commentForm.parentNode as HTMLElement;
+    getInputFromForm(parent.dataset.episodeId);
     commentForm.reset();
   };
 

@@ -1,5 +1,6 @@
+import { Episode, Like } from './types/type';
 // eslint-disable-next-line
-export const createSeasonList = (episodeDetails) => {
+export const createSeasonList = (episodeDetails: Episode[]) => {
   const homePage = document.querySelector('.home-page');
   while (homePage.lastChild) {
     homePage.removeChild(homePage.lastChild);
@@ -22,8 +23,8 @@ export const createSeasonList = (episodeDetails) => {
     homePage.appendChild(episodeTile);
   });
 };
-export const displayLikes = (likes) => {
-  likes.forEach((like) => {
+export const displayLikes = (likes: Like[]) => {
+  likes.forEach((like: Like) => {
     const tile = document.getElementById(like.item_id);
     if (tile !== null) {
       const likeCounter = tile.querySelector('.likes-counter');

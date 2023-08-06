@@ -1,4 +1,4 @@
-import commentsCounter from '../modules/commentsCounter.js';
+import commentsCounter from '../modules/commentsCounter';
 
 // container has no comments
 const div1 = document.createElement('div');
