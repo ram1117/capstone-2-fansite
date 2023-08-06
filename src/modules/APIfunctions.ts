@@ -2,6 +2,7 @@
 import { createPopup, updatePopupComments } from './DOMfunctions';
 import { createSeasonList, displayLikes } from './homepage.js';
 import episodeCounter from './episodeCounter.js';
+import { Comment } from './types/type';
 
 const appId = '/KKlgY0e6iTLZYxIsAnMC';
 const commentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
@@ -16,13 +17,6 @@ export const fetchComments = async (episodeId: string) => {
     comments = [...data];
     updatePopupComments(comments);
   }
-};
-
-type Comment = {
-  username: string;
-  creation_date?: string;
-  comment: string;
-  item_id:string;
 };
 
 export const postComments = async (commentObj: Comment) => {

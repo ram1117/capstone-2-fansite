@@ -1,18 +1,12 @@
 // eslint-disable-next-line
 import { postComments } from './APIfunctions';
 import countComments from './commentsCounter.js';
+import { Comment,Episode } from './types/type';
 
 export const showErrorMsg = (msg: string) => {
   const errorDiv = document.createElement('h5');
   errorDiv.textContent = msg;
   document.body.appendChild(errorDiv);
-};
-
-type Comment = {
-  username: string;
-  creation_date?: string;
-  comment: string;
-  item_id: string;
 };
 
 const createCommentChild = (comment: Comment) => {
@@ -61,21 +55,6 @@ const getInputFromForm = (epiId: string) => {
     '#input-comment'
   ) as HTMLInputElement;
   postComments({ item_id: epiId, username: nameVal, comment: CmmtVal });
-};
-
-type Episode = {
-  id: string;
-  name: string;
-  url: string;
-  airdate: string;
-  season: string;
-  image: {
-    original: string;
-    medium: string;
-  };
-  rating: {
-    average: number;
-  };
 };
 
 export const createPopup = (epiDetails: Episode) => {
