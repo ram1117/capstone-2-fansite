@@ -1,5 +1,8 @@
 import {
-  fetchEpisode, fetchSeason, fetchLike, postNewLike,
+  fetchEpisode,
+  fetchSeason,
+  fetchLike,
+  postNewLike,
 } from './modules/APIfunctions.js';
 import countEpisodes from './modules/episodeCounter.js';
 import './style.css';
@@ -15,7 +18,8 @@ window.onload = () => {
   fetchLike();
 };
 
-const seasonbtn1 = document.querySelector('#season-1');
+const seasonbtn1: HTMLLIElement | null = document.querySelector('#season-1');
+
 seasonbtn1.onclick = () => {
   fetchSeason(seasons[0], counter1);
   fetchLike();
@@ -23,7 +27,7 @@ seasonbtn1.onclick = () => {
   counter3.textContent = '';
 };
 
-const seasonbtn2 = document.querySelector('#season-2');
+const seasonbtn2: HTMLLIElement | null = document.querySelector('#season-2');
 seasonbtn2.onclick = () => {
   fetchSeason(seasons[1], counter2);
   fetchLike();
@@ -31,7 +35,7 @@ seasonbtn2.onclick = () => {
   counter3.textContent = '';
 };
 
-const seasonbtn3 = document.querySelector('#season-3');
+const seasonbtn3: HTMLLIElement | null = document.querySelector('#season-3');
 seasonbtn3.onclick = () => {
   fetchSeason(seasons[2], counter3);
   fetchLike();
@@ -39,16 +43,19 @@ seasonbtn3.onclick = () => {
   counter2.textContent = '';
 };
 
-const episodesContainer = document.querySelector('.home-page');
-episodesContainer.onclick = (event) => {
-  if (event.target.id === 'main-comment-popup') {
-    const { episodeId } = event.target.parentNode.dataset;
+const episodesContainer: HTMLDivElement | null =
+  document.querySelector('.home-page');
+episodesContainer.onclick = (event: Event) => {
+  const element = event.target as HTMLElement;
+  const parent = element.parentNode as HTMLElement;
+  if (element.id === 'main-comment-popup') {
+    const { episodeId } = parent.dataset;
     fetchEpisode(episodeId);
   }
-  if (event.target.id === 'heart-button') {
-    const button = event.target;
+  if (element.id === 'heart-button') {
+    const button = element;
     button.classList.toggle('heart-animation');
-    const { episodeId } = event.target.dataset;
+    const { episodeId } = element.dataset;
     postNewLike(episodeId);
     setTimeout(() => {
       button.classList.toggle('heart-animation');
