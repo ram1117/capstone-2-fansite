@@ -4,13 +4,13 @@ import {
   fetchLike,
   postNewLike,
 } from './modules/APIfunctions';
-import countEpisodes from './modules/episodeCounter.js';
+import countEpisodes from './modules/episodeCounter';
 import './style.css';
 
 const seasons = ['130070', '58465', '58464'];
-const counter1 = document.querySelector('.epi-counter1');
-const counter2 = document.querySelector('.epi-counter2');
-const counter3 = document.querySelector('.epi-counter3');
+const counter1:HTMLElement = document.querySelector('.epi-counter1');
+const counter2:HTMLElement = document.querySelector('.epi-counter2');
+const counter3:HTMLElement = document.querySelector('.epi-counter3');
 
 window.onload = () => {
   fetchSeason(seasons[0], counter1);

@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { createPopup, updatePopupComments } from './DOMfunctions';
 import { createSeasonList, displayLikes } from './homepage.js';
-import episodeCounter from './episodeCounter.js';
+import episodeCounter from './episodeCounter';
 import { Comment } from './types/type';
 
 const appId = '/KKlgY0e6iTLZYxIsAnMC';
@@ -39,7 +39,7 @@ export const fetchEpisode = async (episodeId: string) => {
   }
 };
 
-export const fetchSeason = async (seasonId: string, counter: Element) => {
+export const fetchSeason = async (seasonId: string, counter: HTMLElement) => {
   const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
   await fetch(url)
     .then((response) => response.json())
