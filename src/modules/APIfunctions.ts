@@ -7,17 +7,21 @@ const appId = '/KKlgY0e6iTLZYxIsAnMC';
 const commentURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/comments`;
 const likeURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/likes`;
 
-export const fetchComments = async (episodeId) => {
+export const fetchComments = async (episodeId: string) => {
   let comments = [];
   const fetchCommentUrl = `${commentURL}?item_id=${episodeId}`;
   const commentResponse = await fetch(fetchCommentUrl);
   if (commentResponse.status === 200) {
-    comments = [...await commentResponse.json()];
+    comments = [...(await commentResponse.json())];
     updatePopupComments(comments);
   }
 };
 
-export const postComments = async (commentObj) => {
+type Comment = {
+  item_id: string;
+};
+
+export const postComments = async (commentObj: Comment) => {
   await fetch(commentURL, {
     method: 'POST',
     body: JSON.stringify(commentObj),
@@ -26,8 +30,10 @@ export const postComments = async (commentObj) => {
   fetchComments(commentObj.item_id);
 };
 
-export const fetchEpisode = async (episodeId) => {
-  const tvResponse = await fetch(`https://api.tvmaze.com/episodes/${episodeId}`);
+export const fetchEpisode = async (episodeId: string) => {
+  const tvResponse = await fetch(
+    `https://api.tvmaze.com/episodes/${episodeId}`
+  );
   if (tvResponse.status === 200) {
     const epiDetails = await tvResponse.json();
     createPopup(epiDetails);
@@ -35,7 +41,7 @@ export const fetchEpisode = async (episodeId) => {
   }
 };
 
-export const fetchSeason = async (seasonId, counter) => {
+export const fetchSeason = async (seasonId: string, counter: number) => {
   const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
   await fetch(url)
     .then((response) => response.json())
@@ -52,12 +58,12 @@ export const fetchLike = async () => {
   let likes = [];
   const likeResponse = await fetch(likeURL);
   if (likeResponse.status === 200) {
-    likes = [...await likeResponse.json()];
+    likes = [...(await likeResponse.json())];
     displayLikes(likes);
   }
 };
 
-export const postNewLike = async (episodeId) => {
+export const postNewLike = async (episodeId: string) => {
   await fetch(likeURL, {
     method: 'POST',
     body: JSON.stringify({ item_id: episodeId }),
