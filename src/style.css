@@ -47,7 +47,7 @@ button {
   margin: 2% 5%;
   font-size: 1.2em;
   color: #fff;
-  border: dashed 2px #fff;
+  border: solid 2px #fff;
   border-radius: 20px;
 }
 
