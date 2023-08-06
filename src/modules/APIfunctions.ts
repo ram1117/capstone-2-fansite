@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 import { createPopup, updatePopupComments } from './DOMfunctions';
-import { createSeasonList, displayLikes } from './homepage.js';
+import { createSeasonList, displayLikes } from './homepage';
 import episodeCounter from './episodeCounter';
 import { Comment } from './types/type';
 
