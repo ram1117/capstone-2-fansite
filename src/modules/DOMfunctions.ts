@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 import { postComments } from './APIfunctions';
-import countComments from './commentsCounter.js';
+import countComments from './commentsCounter';
 import { Comment,Episode } from './types/type';
 
 export const showErrorMsg = (msg: string) => {
