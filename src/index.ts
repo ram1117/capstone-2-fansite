@@ -3,7 +3,7 @@ import {
   fetchSeason,
   fetchLike,
   postNewLike,
-} from './modules/APIfunctions.js';
+} from './modules/APIfunctions';
 import countEpisodes from './modules/episodeCounter.js';
 import './style.css';
 

@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { createPopup, updatePopupComments } from './DOMfunctions.js';
+import { createPopup, updatePopupComments } from './DOMfunctions';
 import { createSeasonList, displayLikes } from './homepage.js';
 import episodeCounter from './episodeCounter.js';
 
@@ -8,17 +8,21 @@ const commentURL = `https://us-central1-involvement-api.cloudfunctions.net/capst
 const likeURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps${appId}/likes`;
 
 export const fetchComments = async (episodeId: string) => {
-  let comments = [];
+  let comments: Comment[] = [];
   const fetchCommentUrl = `${commentURL}?item_id=${episodeId}`;
   const commentResponse = await fetch(fetchCommentUrl);
   if (commentResponse.status === 200) {
-    comments = [...(await commentResponse.json())];
+    let data: Comment[] = await commentResponse.json();
+    comments = [...data];
     updatePopupComments(comments);
   }
 };
 
 type Comment = {
-  item_id: string;
+  username: string;
+  creation_date?: string;
+  comment: string;
+  item_id:string;
 };
 
 export const postComments = async (commentObj: Comment) => {
@@ -41,7 +45,7 @@ export const fetchEpisode = async (episodeId: string) => {
   }
 };
 
-export const fetchSeason = async (seasonId: string, counter: number) => {
+export const fetchSeason = async (seasonId: string, counter: Element) => {
   const url = `https://api.tvmaze.com/seasons/${seasonId}/episodes`;
   await fetch(url)
     .then((response) => response.json())
